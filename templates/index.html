@@ -1,0 +1,1240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NutriSync - Health & Nutrition Command Center</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome 6.4 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Chart.js 4.x CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <!-- Glassmorphic Navigation Bar -->
+    <nav class="navbar navbar-nutrisync">
+      <div
+        class="container-fluid d-flex align-items-center justify-content-between position-relative"
+      >
+        <!-- 1. Left: Brand Logo -->
+        <a class="navbar-brand navbar-brand-custom" href="#hero">
+          <div class="brand-icon-wrapper">
+            <i class="fa-solid fa-bolt-lightning"></i>
+          </div>
+          <span>Nutri<span class="brand-text-accent">Sync</span></span>
+        </a>
+
+        <!-- 2. Center: Perfectly Centered Navigation Buttons -->
+        <div
+          class="nav-pills-custom d-none d-lg-flex position-absolute start-50 translate-middle-x"
+          role="tablist"
+        >
+          <button
+            class="nav-link-custom active"
+            id="tab-btn-tracker"
+            data-tab-target="#tab-tracker"
+            type="button"
+            role="tab"
+            aria-controls="tab-tracker"
+            aria-selected="true"
+          >
+            <i class="fa-solid fa-chart-line"></i> Habit Tracker
+          </button>
+          <button
+            class="nav-link-custom"
+            id="tab-btn-calculators"
+            data-tab-target="#tab-calculators"
+            type="button"
+            role="tab"
+            aria-controls="tab-calculators"
+            aria-selected="false"
+          >
+            <i class="fa-solid fa-calculator"></i> Calculators
+          </button>
+          <button
+            class="nav-link-custom"
+            id="tab-btn-diet-workout"
+            data-tab-target="#tab-diet-workout"
+            type="button"
+            role="tab"
+            aria-controls="tab-diet-workout"
+            aria-selected="false"
+          >
+            <i class="fa-solid fa-utensils"></i> Diet &amp; Workouts
+          </button>
+          <button
+            class="nav-link-custom"
+            id="tab-btn-about"
+            data-tab-target="#section-about"
+            type="button"
+            role="tab"
+            aria-controls="section-about"
+            aria-selected="false"
+          >
+            <i class="fa-solid fa-circle-info"></i> About
+          </button>
+          <button
+            class="nav-link-custom"
+            id="tab-btn-contact"
+            data-tab-target="#section-contact"
+            type="button"
+            role="tab"
+            aria-controls="section-contact"
+            aria-selected="false"
+          >
+            <i class="fa-solid fa-envelope"></i> Contact
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Full-Width Slideshow Hero Section -->
+    <header
+      class="hero-section position-relative overflow-hidden text-center py-5"
+      id="hero"
+    >
+      <div class="hero-slideshow-container">
+        <div
+          class="hero-slide active"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1600&q=80&quot;);
+          "
+        ></div>
+        <div
+          class="hero-slide"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1600&q=80&quot;);
+          "
+        ></div>
+        <div
+          class="hero-slide"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1548839140-29a749e1cf4e?auto=format&fit=crop&w=1600&q=80&quot;);
+          "
+        ></div>
+        <div
+          class="hero-slide"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1600&q=80&quot;);
+          "
+        ></div>
+        <div
+          class="hero-slide"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1510519138161-58441d82595d?auto=format&fit=crop&w=1600&q=80&quot;);
+          "
+        ></div>
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="container position-relative z-index-2">
+        <div class="hero-particles-wrapper">
+          <div class="particle particle-1"></div>
+          <div class="particle particle-2"></div>
+          <div class="particle particle-3"></div>
+        </div>
+
+        <div class="hero-content mx-auto" style="max-width: 800px">
+          <h1 class="hero-title">
+            Transform Your Health with
+            <span class="gradient-text">Precision Intelligence.</span>
+          </h1>
+          <p class="hero-subtitle text-white-50">
+            All-in-one health command center for nutrition tracking, body
+            metrics, and customized workout guides.
+          </p>
+
+          <div class="quote-widget-card mx-auto">
+            <div class="quote-icon">
+              <i class="fa-solid fa-quote-left"></i>
+            </div>
+            <p id="quote-display" class="quote-text">
+              Loading daily spark of motivation...
+            </p>
+            <p id="advice-display" class="advice-text">
+              <i class="fa-solid fa-lightbulb"></i> Loading actionable health
+              advice...
+            </p>
+          </div>
+
+          <div class="cta-group d-flex justify-content-center gap-3 mt-4">
+            <button
+              id="hero-spark-btn"
+              class="btn-nutrisync-primary"
+              type="button"
+            >
+              <i class="fa-solid fa-bolt"></i> Get New Spark
+            </button>
+            <button
+              id="hero-explore-btn"
+              class="btn-nutrisync-secondary text-white"
+              type="button"
+            >
+              <i class="fa-solid fa-compass"></i> Explore
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="dashboard-container">
+      <!-- TAB 1: HABIT TRACKER HUB -->
+      <section
+        id="tab-tracker"
+        class="tab-pane-custom active"
+        role="tabpanel"
+        aria-labelledby="tab-btn-tracker"
+      >
+        <div class="row g-4">
+          <!-- Widget 1: Water Intake Tracker -->
+          <div class="col-12 col-lg-4">
+            <div
+              class="glass-card h-100 d-flex flex-column justify-content-between"
+            >
+              <div>
+                <div class="card-header-custom">
+                  <h2 class="card-title-custom">
+                    <div class="card-title-icon">
+                      <i class="fa-solid fa-glass-water"></i>
+                    </div>
+                    Water Intake Tracker
+                  </h2>
+                </div>
+
+                <div class="chart-wrapper my-3">
+                  <canvas id="waterChart"></canvas>
+                  <div class="chart-center-text">
+                    <div id="water-current-val" class="chart-center-value">
+                      0.00 L
+                    </div>
+                    <div id="water-target-label" class="chart-center-label">
+                      Target: 3.0 L
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="d-flex flex-wrap gap-2 justify-content-center mb-3">
+                  <button
+                    id="btn-water-250"
+                    class="btn-nutrisync-secondary py-2 px-3"
+                    type="button"
+                  >
+                    <i class="fa-solid fa-plus"></i> 250 ml
+                  </button>
+                  <button
+                    id="btn-water-500"
+                    class="btn-nutrisync-secondary py-2 px-3"
+                    type="button"
+                  >
+                    <i class="fa-solid fa-plus"></i> 500 ml
+                  </button>
+                  <button
+                    id="btn-water-1000"
+                    class="btn-nutrisync-secondary py-2 px-3"
+                    type="button"
+                  >
+                    <i class="fa-solid fa-plus"></i> 1000 ml
+                  </button>
+                </div>
+                <button
+                  id="btn-water-reset"
+                  class="btn-nutrisync-secondary w-100 py-2"
+                  type="button"
+                >
+                  <i class="fa-solid fa-rotate-right"></i> Reset Water Log
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget 2: Food & Calorie Logger -->
+          <div class="col-12 col-lg-8">
+            <div class="glass-card h-100">
+              <div class="card-header-custom">
+                <h2 class="card-title-custom">
+                  <div class="card-title-icon">
+                    <i class="fa-solid fa-fire"></i>
+                  </div>
+                  Food &amp; Calorie Logger
+                </h2>
+                <span id="calorie-budget-summary" class="exercise-badge"
+                  >Budget: 2000 kcal</span
+                >
+              </div>
+
+              <form id="form-calorie-logger" class="row g-3 mb-4">
+                <div class="col-12 col-md-5">
+                  <label for="food-item-name" class="form-label-custom"
+                    >Food Item</label
+                  >
+                  <input
+                    type="text"
+                    id="food-item-name"
+                    class="form-control-custom"
+                    placeholder="e.g., Oatmeal with Berries"
+                    required
+                  />
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                  <label for="food-item-calories" class="form-label-custom"
+                    >Calories (kcal)</label
+                  >
+                  <input
+                    type="number"
+                    id="food-item-calories"
+                    class="form-control-custom"
+                    placeholder="e.g., 350"
+                    min="1"
+                    required
+                  />
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <label for="food-item-meal" class="form-label-custom"
+                    >Meal Type</label
+                  >
+                  <select
+                    id="food-item-meal"
+                    class="form-select-custom"
+                    required
+                  >
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Snack">Snack</option>
+                  </select>
+                </div>
+                <div class="col-12 text-end">
+                  <button type="submit" class="btn-nutrisync-primary py-2 px-4">
+                    <i class="fa-solid fa-plus"></i> Add Entry
+                  </button>
+                </div>
+              </form>
+
+              <div class="mb-4">
+                <div
+                  class="d-flex justify-content-between font-weight-600 mb-1"
+                >
+                  <span class="form-label-custom mb-0"
+                    >Consumed:
+                    <strong id="calories-consumed-text" class="text-main"
+                      >0 kcal</strong
+                    ></span
+                  >
+                  <span class="form-label-custom mb-0"
+                    >Remaining:
+                    <strong id="calories-remaining-text" class="text-mint"
+                      >2000 kcal</strong
+                    ></span
+                  >
+                </div>
+                <div
+                  class="progress"
+                  style="
+                    height: 10px;
+                    background: rgba(0, 0, 0, 0.3);
+                    border-radius: 50px;
+                  "
+                >
+                  <div
+                    id="calorie-progress-bar"
+                    class="progress-bar"
+                    role="progressbar"
+                    style="
+                      width: 0%;
+                      background: linear-gradient(
+                        90deg,
+                        var(--accent-teal),
+                        var(--accent-mint)
+                      );
+                    "
+                    aria-valuenow="0"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table
+                  id="table-food-log"
+                  class="table table-dark table-borderless align-middle mb-0"
+                  style="background: transparent"
+                >
+                  <thead>
+                    <tr
+                      style="
+                        border-bottom: 1px solid var(--card-border);
+                        color: var(--text-muted);
+                        font-size: 0.85rem;
+                      "
+                    >
+                      <th>MEAL</th>
+                      <th>FOOD ITEM</th>
+                      <th>CALORIES</th>
+                      <th class="text-end">ACTION</th>
+                    </tr>
+                  </thead>
+                  <tbody id="food-log-tbody">
+                    <tr id="empty-food-log-row">
+                      <td colspan="4" class="text-center py-4 text-muted">
+                        <i
+                          class="fa-solid fa-utensils mb-2 d-block"
+                          style="font-size: 1.5rem; opacity: 0.5"
+                        ></i>
+                        No food entries logged yet today.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget 3: Daily Micro-Goal Notes -->
+          <div class="col-12">
+            <div class="glass-card">
+              <div class="card-header-custom">
+                <h2 class="card-title-custom">
+                  <div class="card-title-icon">
+                    <i class="fa-solid fa-list-check"></i>
+                  </div>
+                  Daily Micro-Goal Notes
+                </h2>
+              </div>
+
+              <form id="form-micro-goal" class="row g-2 mb-4">
+                <div class="col-12 col-md-10">
+                  <input
+                    type="text"
+                    id="micro-goal-input"
+                    class="form-control-custom"
+                    placeholder="e.g., Take 10,000 steps, Avoid sugar after 8 PM..."
+                    required
+                  />
+                </div>
+                <div class="col-12 col-md-2">
+                  <button
+                    type="submit"
+                    class="btn-nutrisync-primary w-100 py-2"
+                  >
+                    <i class="fa-solid fa-plus"></i> Add Goal
+                  </button>
+                </div>
+              </form>
+
+              <div id="checklist-container" class="checklist-container">
+                <div
+                  class="goal-item-row d-flex align-items-center justify-content-between p-3 mb-2 rounded-3"
+                >
+                  <div class="d-flex align-items-center gap-3">
+                    <input
+                      type="checkbox"
+                      class="custom-checkbox-input goal-checkbox"
+                      checked
+                    />
+                    <span class="checklist-text goal-text"
+                      >Drink 500ml water right after waking up</span
+                    >
+                  </div>
+                  <button class="btn-delete-goal">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+
+                <div
+                  class="goal-item-row d-flex align-items-center justify-content-between p-3 mb-2 rounded-3"
+                >
+                  <div class="d-flex align-items-center gap-3">
+                    <input
+                      type="checkbox"
+                      class="custom-checkbox-input goal-checkbox"
+                    />
+                    <span class="checklist-text goal-text"
+                      >Complete 30-minute workout or mobility routine</span
+                    >
+                  </div>
+                  <button class="btn-delete-goal">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+
+                <div
+                  class="goal-item-row d-flex align-items-center justify-content-between p-3 mb-2 rounded-3"
+                >
+                  <div class="d-flex align-items-center gap-3">
+                    <input
+                      type="checkbox"
+                      class="custom-checkbox-input goal-checkbox"
+                    />
+                    <span class="checklist-text goal-text"
+                      >Consume at least 120g of high-quality protein</span
+                    >
+                  </div>
+                  <button class="btn-delete-goal">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: HEALTH CALCULATORS SUITE -->
+      <section
+        id="tab-calculators"
+        class="tab-pane-custom d-none"
+        role="tabpanel"
+        aria-labelledby="tab-btn-calculators"
+      >
+        <div class="row g-4">
+          <!-- Component 1: BMI Gauge & Status -->
+          <div class="col-12 col-lg-6">
+            <div class="glass-card h-100">
+              <div class="card-header-custom">
+                <h2 class="card-title-custom">
+                  <div class="card-title-icon">
+                    <i class="fa-solid fa-weight-scale"></i>
+                  </div>
+                  BMI Speed Gauge
+                </h2>
+              </div>
+
+              <form id="form-bmi-calculator" class="row g-3 mb-4">
+                <div class="col-12 col-sm-6">
+                  <label for="bmi-weight" class="form-label-custom"
+                    >Weight (kg)</label
+                  >
+                  <input
+                    type="number"
+                    step="0.1"
+                    id="bmi-weight"
+                    class="form-control-custom"
+                    placeholder="e.g., 72.5"
+                    required
+                  />
+                </div>
+                <div class="col-12 col-sm-6">
+                  <label for="bmi-height" class="form-label-custom"
+                    >Height (cm)</label
+                  >
+                  <input
+                    type="number"
+                    step="0.1"
+                    id="bmi-height"
+                    class="form-control-custom"
+                    placeholder="e.g., 175"
+                    required
+                  />
+                </div>
+                <div class="col-12">
+                  <button
+                    type="submit"
+                    id="btn-calc-bmi"
+                    class="btn-nutrisync-primary w-100 py-2"
+                  >
+                    <i class="fa-solid fa-calculator"></i> Calculate BMI
+                  </button>
+                </div>
+              </form>
+
+              <div id="bmiGaugeContainer" class="bmi-gauge-container">
+                <div class="bmi-gauge-wrapper">
+                  <div class="bmi-gauge-arc"></div>
+                  <div id="bmi-needle" class="bmi-indicator-needle"></div>
+                </div>
+                <div id="bmi-val-display" class="bmi-value-display">--.-</div>
+                <div id="bmi-badge-display" class="bmi-badge bmi-normal">
+                  Enter Metrics
+                </div>
+              </div>
+
+              <div
+                id="bmi-advice-box"
+                class="quote-widget-card mt-3 mb-0"
+                style="display: none"
+              >
+                <p id="bmi-advice-text" class="advice-text mb-0">
+                  <i class="fa-solid fa-circle-info"></i> Your custom BMI
+                  recommendation will appear here.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Component 2: Calorie Budget & Macro Split -->
+          <div class="col-12 col-lg-6">
+            <div class="glass-card h-100">
+              <div class="card-header-custom">
+                <h2 class="card-title-custom">
+                  <div class="card-title-icon">
+                    <i class="fa-solid fa-chart-pie"></i>
+                  </div>
+                  Calorie &amp; Macro Calculator
+                </h2>
+              </div>
+
+              <form id="form-calorie-budget" class="row g-3 mb-3">
+                <div class="col-12 col-sm-4">
+                  <label for="macro-weight" class="form-label-custom"
+                    >Weight (kg)</label
+                  >
+                  <input
+                    type="number"
+                    step="0.1"
+                    id="macro-weight"
+                    class="form-control-custom"
+                    placeholder="70"
+                    required
+                  />
+                </div>
+                <div class="col-12 col-sm-4">
+                  <label for="macro-height" class="form-label-custom"
+                    >Height (cm)</label
+                  >
+                  <input
+                    type="number"
+                    step="0.1"
+                    id="macro-height"
+                    class="form-control-custom"
+                    placeholder="175"
+                    required
+                  />
+                </div>
+                <div class="col-12 col-sm-4">
+                  <label for="macro-age" class="form-label-custom">Age</label>
+                  <input
+                    type="number"
+                    id="macro-age"
+                    class="form-control-custom"
+                    placeholder="25"
+                    required
+                  />
+                </div>
+                <div class="col-12 col-sm-6">
+                  <label for="macro-gender" class="form-label-custom"
+                    >Gender</label
+                  >
+                  <select id="macro-gender" class="form-select-custom" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <label for="macro-act" class="form-label-custom"
+                    >Activity Level</label
+                  >
+                  <select id="macro-act" class="form-select-custom" required>
+                    <option value="sedentary">Sedentary (1.2x)</option>
+                    <option value="lightly active">
+                      Lightly Active (1.55x)
+                    </option>
+                    <option value="intense exercise">
+                      Intense Exercise (1.9x)
+                    </option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <button
+                    type="submit"
+                    id="btn-calc-budget"
+                    class="btn-nutrisync-primary w-100 py-2"
+                  >
+                    <i class="fa-solid fa-bullseye"></i> Compute Macro Split
+                  </button>
+                </div>
+              </form>
+
+              <div class="text-center my-2">
+                <span class="form-label-custom mb-0"
+                  >Base BMR:
+                  <strong id="bmr-val-display" class="text-main"
+                    >---- kcal</strong
+                  >
+                  | Total Maintenance:
+                  <strong id="total-cals-display" class="text-mint"
+                    >---- kcal</strong
+                  ></span
+                >
+              </div>
+
+              <div class="macro-cards-grid">
+                <div class="macro-card macro-protein">
+                  <div class="macro-title">Protein (30%)</div>
+                  <div id="macro-protein-val" class="macro-value">--</div>
+                  <div class="macro-unit">grams / day</div>
+                </div>
+                <div class="macro-card macro-carbs">
+                  <div class="macro-title">Carbs (40%)</div>
+                  <div id="macro-carbs-val" class="macro-value">--</div>
+                  <div class="macro-unit">grams / day</div>
+                </div>
+                <div class="macro-card macro-fats">
+                  <div class="macro-title">Fats (30%)</div>
+                  <div id="macro-fats-val" class="macro-value">--</div>
+                  <div class="macro-unit">grams / day</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Component 3: Instant Nutrient Counter -->
+          <div class="col-12">
+            <div class="glass-card">
+              <div class="card-header-custom">
+                <h2 class="card-title-custom">
+                  <div class="card-title-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </div>
+                  Instant Protein Nutrient Lookup
+                </h2>
+              </div>
+
+              <form
+                id="form-nutrient-counter"
+                class="row g-3 align-items-end mb-3"
+              >
+                <div class="col-12 col-md-6">
+                  <label for="nutrient-food-input" class="form-label-custom"
+                    >Select or Type Food Item</label
+                  >
+                  <input
+                    type="text"
+                    id="nutrient-food-input"
+                    class="form-control-custom"
+                    list="food-db-list"
+                    placeholder="e.g., Chicken, Eggs, Oats, Soya Chunks..."
+                    required
+                  />
+                  <datalist id="food-db-list">
+                    <option value="Eggs"></option>
+                    <option value="Chicken"></option>
+                    <option value="Chickpeas"></option>
+                    <option value="Oats"></option>
+                    <option value="Lentils"></option>
+                    <option value="Daal Mash"></option>
+                    <option value="Red Beans"></option>
+                    <option value="Yogurt"></option>
+                    <option value="Cottage Cheese"></option>
+                    <option value="Soya Chunks"></option>
+                  </datalist>
+                </div>
+                <div class="col-12 col-md-4">
+                  <label for="nutrient-qty-input" class="form-label-custom"
+                    >Quantity (Grams or Pieces)</label
+                  >
+                  <input
+                    type="number"
+                    step="0.1"
+                    id="nutrient-qty-input"
+                    class="form-control-custom"
+                    placeholder="e.g., 150"
+                    required
+                  />
+                </div>
+                <div class="col-12 col-md-2">
+                  <button
+                    type="submit"
+                    id="btn-calc-nutrient"
+                    class="btn-nutrisync-primary w-100 py-2"
+                  >
+                    <i class="fa-solid fa-search"></i> Lookup
+                  </button>
+                </div>
+              </form>
+
+              <div
+                id="nutrient-result-card"
+                class="workout-exercise-card mb-0"
+                style="display: none"
+              >
+                <div
+                  class="d-flex align-items-center justify-content-between flex-wrap gap-2"
+                >
+                  <div>
+                    <h4 id="nutrient-result-title" class="exercise-title mb-1">
+                      Food Item Result
+                    </h4>
+                    <p
+                      id="nutrient-result-message"
+                      class="exercise-instructions mb-0"
+                    >
+                      Calculation message details will render here.
+                    </p>
+                  </div>
+                  <div class="exercise-badge fs-6 py-2 px-3">
+                    <i class="fa-solid fa-dna"></i>
+                    <span id="nutrient-result-protein">0.0g Protein</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: DIET PLANS & EXERCISE GUIDES -->
+      <section
+        id="tab-diet-workout"
+        class="tab-pane-custom d-none"
+        role="tabpanel"
+        aria-labelledby="tab-btn-diet-workout"
+      >
+        <div class="row g-4">
+          <!-- Component 1: Goal-Based Diet Generator -->
+          <div class="col-12">
+            <div class="glass-card">
+              <div class="card-header-custom">
+                <h2 class="card-title-custom">
+                  <div class="card-title-icon">
+                    <i class="fa-solid fa-plate-wheat"></i>
+                  </div>
+                  Goal-Based Custom Diet Plan Generator
+                </h2>
+              </div>
+
+              <form id="form-diet-plan" class="row g-3 mb-4">
+                <div class="col-12 col-sm-6 col-md-3">
+                  <label for="diet-goal" class="form-label-custom"
+                    >Primary Fitness Goal</label
+                  >
+                  <select id="diet-goal" class="form-select-custom" required>
+                    <option value="bulking">Bulking (Muscle Gain)</option>
+                    <option value="cutting">Cutting (Fat Loss)</option>
+                    <option value="weight-loss">Weight Loss</option>
+                  </select>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                  <label for="diet-weight" class="form-label-custom"
+                    >Weight (kg)</label
+                  >
+                  <input
+                    type="number"
+                    step="0.1"
+                    id="diet-weight"
+                    class="form-control-custom"
+                    placeholder="70"
+                    required
+                  />
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                  <label for="diet-height" class="form-label-custom"
+                    >Height (cm)</label
+                  >
+                  <input
+                    type="number"
+                    step="0.1"
+                    id="diet-height"
+                    class="form-control-custom"
+                    placeholder="175"
+                    required
+                  />
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                  <label for="diet-age" class="form-label-custom">Age</label>
+                  <input
+                    type="number"
+                    id="diet-age"
+                    class="form-control-custom"
+                    placeholder="25"
+                    required
+                  />
+                </div>
+                <div class="col-12 col-sm-6">
+                  <label for="diet-gender" class="form-label-custom"
+                    >Gender</label
+                  >
+                  <select id="diet-gender" class="form-select-custom" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <label for="diet-act" class="form-label-custom"
+                    >Activity Factor</label
+                  >
+                  <select id="diet-act" class="form-select-custom" required>
+                    <option value="sedentary">Sedentary (1.2x)</option>
+                    <option value="lightly active">
+                      Lightly Active (1.55x)
+                    </option>
+                    <option value="intense exercise">
+                      Intense Exercise (1.9x)
+                    </option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <button
+                    type="submit"
+                    id="btn-generate-diet"
+                    class="btn-nutrisync-primary w-100 py-2"
+                  >
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Generate
+                    6-Meal Protocol
+                  </button>
+                </div>
+              </form>
+
+              <div id="diet-plan-results" style="display: none">
+                <div
+                  class="d-flex align-items-center justify-content-between mb-3 pb-2"
+                  style="border-bottom: 1px solid var(--card-border)"
+                >
+                  <h3 id="diet-plan-goal-title" class="exercise-title mb-0">
+                    Custom Meal Protocol
+                  </h3>
+                  <span class="exercise-badge"
+                    >Target:
+                    <strong id="diet-plan-target-cals">0 kcal</strong></span
+                  >
+                </div>
+
+                <div id="diet-meals-container">
+                  <!-- 6 Meal rows dynamically injected here -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Component 2: Muscle Workout Guide -->
+          <div class="col-12">
+            <div class="glass-card">
+              <div class="card-header-custom">
+                <h2 class="card-title-custom">
+                  <div class="card-title-icon">
+                    <i class="fa-solid fa-dumbbell"></i>
+                  </div>
+                  Target Muscle Workout Guides
+                </h2>
+              </div>
+
+              <!-- Horizontal Scroll Selector Bar -->
+              <div class="muscle-scroll-container mb-4">
+                <button
+                  class="muscle-pill-btn active"
+                  data-muscle="chest"
+                  type="button"
+                >
+                  <i class="fa-solid fa-dumbbell"></i> Chest
+                </button>
+                <button
+                  class="muscle-pill-btn"
+                  data-muscle="back"
+                  type="button"
+                >
+                  <i class="fa-solid fa-person-running"></i> Back
+                </button>
+                <button
+                  class="muscle-pill-btn"
+                  data-muscle="arms"
+                  type="button"
+                >
+                  <i class="fa-solid fa-hand-fist"></i> Arms
+                </button>
+                <button
+                  class="muscle-pill-btn"
+                  data-muscle="legs"
+                  type="button"
+                >
+                  <i class="fa-solid fa-person-walking"></i> Legs
+                </button>
+                <button
+                  class="muscle-pill-btn"
+                  data-muscle="shoulders"
+                  type="button"
+                >
+                  <i class="fa-solid fa-child"></i> Shoulders
+                </button>
+                <button
+                  class="muscle-pill-btn"
+                  data-muscle="biceps"
+                  type="button"
+                >
+                  <i class="fa-solid fa-shield-halved"></i> Biceps
+                </button>
+                <button
+                  class="muscle-pill-btn"
+                  data-muscle="triceps"
+                  type="button"
+                >
+                  <i class="fa-solid fa-bolt"></i> Triceps
+                </button>
+              </div>
+
+              <div id="workout-content-display">
+                <div class="row g-3 mb-4">
+                  <div class="col-12 col-md-6">
+                    <div
+                      class="workout-exercise-card h-100"
+                      style="border-left: 4px solid var(--accent-mint)"
+                    >
+                      <h4 class="exercise-title text-mint mb-2">
+                        <i class="fa-solid fa-temperature-arrow-up"></i> Warmup
+                        Routine
+                      </h4>
+                      <p
+                        id="workout-warmup-text"
+                        class="exercise-instructions mb-0"
+                      >
+                        Select a muscle group above to load routines.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div
+                      class="workout-exercise-card h-100"
+                      style="border-left: 4px solid var(--accent-gold)"
+                    >
+                      <h4 class="exercise-title text-gold mb-2">
+                        <i class="fa-solid fa-temperature-arrow-down"></i>
+                        Cooldown Routine
+                      </h4>
+                      <p
+                        id="workout-cooldown-text"
+                        class="exercise-instructions mb-0"
+                      >
+                        Select a muscle group above to load routines.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 id="workout-muscle-heading" class="exercise-title mb-3">
+                  Exercises
+                </h3>
+                <div id="workout-exercises-grid" class="row g-3">
+                  <!-- Exercise Cards Dynamic Container -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: ABOUT NUTRISYNC (ENHANCED HIGH-CONTRAST) -->
+      <section
+        id="section-about"
+        class="tab-pane-custom d-none"
+        role="tabpanel"
+        aria-labelledby="tab-btn-about"
+      >
+        <div class="about-section">
+          <h2 class="section-title text-white">About NutriSync</h2>
+          <p class="section-subtitle text-white-50">
+            Your high-performance health command center designed to bring
+            precision, transparency, and data privacy to your daily fitness
+            journey.
+          </p>
+
+          <div class="glass-card about-purpose-card border-light">
+            <h3 class="text-white">
+              <i class="fa-solid fa-bullseye text-mint"></i> Core Purpose
+            </h3>
+            <p class="text-light">
+              NutriSync bridges the gap between raw physiological metrics and
+              daily actionable habits. Built on client-side calculation engines
+              and local storage architecture, NutriSync ensures your personal
+              health metrics remain completely private, fast, and accessible
+              across all devices without requiring cloud registration or data
+              sharing.
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <div class="glass-card feature-card border-light">
+              <div class="feature-icon">
+                <i class="fa-solid fa-calculator text-mint"></i>
+              </div>
+              <h4 class="text-white">Harris-Benedict BMR Algorithms</h4>
+              <p class="text-white-50">
+                Calculates precise Basal Metabolic Rate (BMR) and Total Daily
+                Energy Expenditure (TDEE) based on revised Harris-Benedict
+                formulas to establish accurate daily caloric maintenance
+                baselines.
+              </p>
+            </div>
+
+            <div class="glass-card feature-card border-light">
+              <div class="feature-icon">
+                <i class="fa-solid fa-vault text-mint"></i>
+              </div>
+              <h4 class="text-white">LocalStorage Data Security</h4>
+              <p class="text-white-50">
+                All micro-goal logs, calorie entries, and water tracker history
+                are preserved locally in your browser storage. Zero tracking
+                cookies, zero external telemetry, 100% data privacy.
+              </p>
+            </div>
+
+            <div class="glass-card feature-card border-light">
+              <div class="feature-icon">
+                <i class="fa-solid fa-chart-pie text-mint"></i>
+              </div>
+              <h4 class="text-white">Precision Macro Splits</h4>
+              <p class="text-white-50">
+                Automated 30/40/30 protein, carbohydrate, and fat distribution
+                models customized to individual activity factors, helping you
+                balance muscle building and fat loss.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card advantages-card border-light">
+            <h3 class="text-white">Why NutriSync?</h3>
+            <ul class="advantages-list">
+              <li>
+                <i class="fa-solid fa-circle-check text-mint"></i>
+                <span class="text-light"
+                  ><strong>All-In-One Dashboard:</strong> Track hydration, log
+                  meals, compute macronutrients, and view workout routines in
+                  one seamless space.</span
+                >
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check text-mint"></i>
+                <span class="text-light"
+                  ><strong>Real-Time Analytics:</strong> Interactive Chart.js
+                  gauges and instant progress visuals give immediate feedback on
+                  daily targets.</span
+                >
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check text-mint"></i>
+                <span class="text-light"
+                  ><strong>Zero Latency:</strong> Immediate, dynamic
+                  recalculations on input changes without full page reloads or
+                  remote latency.</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: CONTACT -->
+      <section
+        id="section-contact"
+        class="tab-pane-custom d-none"
+        role="tabpanel"
+        aria-labelledby="tab-btn-contact"
+      >
+        <div class="glass-card">
+          <div class="card-header-custom">
+            <h2 class="card-title-custom">
+              <div class="card-title-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              Contact &amp; Feedback
+            </h2>
+          </div>
+
+          <form id="form-contact" class="row g-3">
+            <div class="col-12 col-md-6">
+              <label for="contact-name" class="form-label-custom"
+                >Your Name</label
+              >
+              <input
+                type="text"
+                id="contact-name"
+                class="form-control-custom"
+                placeholder="John Doe"
+                required
+              />
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="contact-email" class="form-label-custom"
+                >Your Email</label
+              >
+              <input
+                type="email"
+                id="contact-email"
+                class="form-control-custom"
+                placeholder="john@example.com"
+                required
+              />
+            </div>
+            <div class="col-12">
+              <label for="contact-subject" class="form-label-custom"
+                >Subject</label
+              >
+              <input
+                type="text"
+                id="contact-subject"
+                class="form-control-custom"
+                placeholder="Feature suggestion or feedback..."
+                required
+              />
+            </div>
+            <div class="col-12">
+              <label for="contact-message" class="form-label-custom"
+                >Message</label
+              >
+              <textarea
+                id="contact-message"
+                class="form-control-custom"
+                rows="4"
+                placeholder="Type your message here..."
+                required
+              ></textarea>
+            </div>
+            <div class="col-12 text-end">
+              <button type="submit" class="btn-nutrisync-primary py-2 px-4">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container-custom"></div>
+
+    <!-- Footer -->
+    <footer class="footer-nutrisync">
+      <div class="container text-center">
+        <p class="mb-2">
+          <strong class="text-main"
+            ><i class="fa-solid fa-bolt-lightning text-mint"></i> NutriSync
+            Command Center</strong
+          >
+          - Precision Health Intelligence
+        </p>
+        <p class="mb-0 text-dim">
+          Copyright &copy; 2026 NutriSync. Built for high performance, clean
+          RESTful standards, and glassmorphic UI elegance.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Frontend Application Script -->
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>
